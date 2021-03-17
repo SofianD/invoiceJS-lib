@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>My Invoice</title>
+        <style>
+            .info-section {
+                height: 30%;
+            }
+
+            .params-section {
+                display: flex;
+                width: 100%;
+                min-height: 70%;
+            }
+
+            table {
+                width: 100%;
+                border: 2px solid black;
+                margin: auto 0;
+            }
+
+            tr {
+                width: 100%;
+                border: 1px solid black;
+            }
+
+            td:nth-child(2n) {
+                text-align: right;
+                width: 30%;
+                background-color: grey;
+            }
+
+            td:nth-child(2n+1) {
+                width: 70%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="info-section">
+            <h1>[[-z.lastname]]</h1>
+            <h1>[[-z.firstname]]</h1>
+            <h2>[[-z.adress]]</h2>
+        </div>
+
+        <div class="params-section">
+            <table>
+                    <tbody>
+                        [[ for (const param of z.params) { ]]
+                        <tr>
+                            <td>[[-param.name]]</td>
+                            <td>[[-param.value]]</td>
+                        </tr>
+                        [[ } ]]
+                    </tbody>
+            </table>
+        </div>
+    </body>
+</html>
