@@ -1,4 +1,4 @@
-<form id="myForm" onsubmit="pushFormData()">
+<form id="myForm">
     <div class="form-example">
         <label for="name">Enter your name: </label>
         <input type="text" name="name" id="name" required>
@@ -8,7 +8,7 @@
         <input type="email" name="email" id="email" required>
     </div>
         <div class="form-example">
-        <input type="submit" value="Subscribe!">
+        <input onclick="pushFormdata()" value="Subscribe!">
     </div>
 </form>
 <script>
@@ -18,5 +18,6 @@
         data.push(form);
         console.log(form)
         console.log(form.elements)
+        form.reset();
     }
 </script>
