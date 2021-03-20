@@ -1,17 +1,35 @@
 <form id="myForm">
     <div id="form-body">
         <div class="form-example">
-            <label for="name">Enter your name: </label>
-            <input type="text" name="name" id="name" required>
+            <label for="name">Enter your fname: </label>
+            <input type="text" name="firstname" id="firstname" required>
         </div>
-        
-        <div class="multi-input">
-            <label for="email">Enter your email: </label>
-            <input type="email" name="email" id="email" required>
+        <div class="form-example">
+            <label for="name">Enter your lname: </label>
+            <input type="text" name="lastname" id="lastname" required>
+        </div>
+        <div class="form-example">
+            <label for="name">Enter your adress: </label>
+            <input type="text" name="adress" id="adress" required>
+        </div>
 
-            <button id="add-param">Add param</button>
+        <br>
+        
+        <div class="multi-input" id="params">
+            <div class="form-example">
+                <label for="name">Enter name param: </label>
+                <input type="text" name="name" id="name">
+            </div>
+            <div class="form-example">
+                <label for="value">Enter your lname: </label>
+                <input type="text" name="value" id="value">
+            </div>
         </div>
+
+        <button id="add-param">Add param</button>
+    
     </div>
+    <br>
     <div class="form-example">
         <input type="submit" value="Subscribe!">
     </div>
