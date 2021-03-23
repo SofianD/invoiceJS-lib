@@ -1,36 +1,38 @@
 <form id="myForm">
     <div id="form-body">
-        <div class="form-example">
-            <label for="name">Enter your fname: </label>
+        <div class="row">
+            <label for="name">Firstname: </label>
             <input type="text" name="firstname" id="firstname" required>
         </div>
-        <div class="form-example">
-            <label for="name">Enter your lname: </label>
+        <div class="row">
+            <label for="lastname">Lastname: </label>
             <input type="text" name="lastname" id="lastname" required>
         </div>
-        <div class="form-example">
-            <label for="name">Enter your adress: </label>
+        <div class="row">
+            <label for="adress">Adress: </label>
             <input type="text" name="adress" id="adress" required>
         </div>
 
         <br>
         
-        <div class="multi-input" id="params">
-            <div class="form-example">
-                <label for="name">Enter name param: </label>
+        <div class="multi-input grid" id="params">
+            <div class="row">
+                <label for="name">Option name: </label>
                 <input type="text" name="name" id="name">
             </div>
-            <div class="form-example">
-                <label for="value">Enter your lname: </label>
+            <div class="row">
+                <label for="value">Option value: </label>
                 <input type="text" name="value" id="value">
             </div>
         </div>
-
-        <button id="add-param">Add param</button>
+        
+        <div class="row">
+            <button id="add-param">Add param</button>
+        </div>
     
     </div>
     <br>
-    <div class="form-example">
-        <input type="submit" value="Subscribe!">
+    <div>
+        <input type="submit" value="Validate">
     </div>
 </form>
