@@ -1,0 +1,28 @@
+{
+  "name": "invoiceJS-lib",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SofianD/invoiceJS-lib.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SofianD/invoiceJS-lib/issues"
+  },
+  "homepage": "https://github.com/SofianD/invoiceJS-lib#readme",
+  "dependencies": {
+    "@sofiand/invoice": "0.0.2",
+    "from-data-to-pdf": "^1.0.18"
+  }
+}
