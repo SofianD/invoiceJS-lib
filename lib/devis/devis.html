@@ -1,0 +1,168 @@
+<html>
+    <head>
+        <title>Devis</title>
+        <style>
+            body {
+                margin: 50px;
+            }
+
+            p {
+                margin: 8px 0;
+            }
+
+            .info-section {
+                display: flex;
+            }
+
+            .seller, .buyer {
+                line-height: 13px;
+            }
+
+            .seller {
+                width: 70%;
+            }
+
+            .buyer {
+                width: 30%;
+                text-align: right;
+                margin-top: auto;
+            }
+
+            .projectName {
+                text-align: center;
+                margin-top: 65px;
+            }
+
+            .params-section {
+                display: flex;
+                width: 100%;
+                margin-top: 30px;
+            }
+
+            .total-section {
+                display: flex;
+                width: 100%;
+                margin-bottom: 30px;
+            }
+
+            .mentions-legales {
+                margin-top: 100px;
+                width: 100%;
+            }
+
+            table {
+                width: 100%;
+                
+                border-radius: 2px;
+                margin: auto 0;
+            }
+
+            .table-title {
+                font-weight: bold;
+                background-color: rgba(128, 128, 128, 0.671) !important;
+            }
+
+            tr {
+                width: 100%;
+                border: 1px solid black;
+            }
+
+            td:nth-child(3) {
+                text-align: right;
+                width: 25%;
+                background-color: rgba(128, 128, 128, 0.164);
+            }
+
+            td:nth-child(2) {
+                width: 25%;
+                text-align: center;
+            }
+
+            td:nth-child(1) {
+                width: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="info-section">
+            <div class="seller">
+                <p>[[-z.meName]]</p>
+                <p>[[-z.meAdress]]</p>
+                <p>[[=z.meCodepostal + ' ' + z.meCity]]</p>
+                <p>[[-z.mePhone]] [[-meMobile]]</p>
+                <p>[[-z.meSiret]]</p>
+                <p>[[-z.meApe]]</p>
+            </div>
+            <div class="buyer">
+                <p>[[-z.buyerName]]</p>
+                <p>[[-z.buyerAdress]]</p>
+                <p>[[=z.buyerCodePostal + ' ' + z.buyerCity]]</p>
+            </div>
+        </div>
+
+        <div class="projectName">
+            <h3>[[-z.projectName]]</h3>
+        </div>
+
+        <div class="params-section">
+            <table>
+                    <tbody>
+                        <tr>
+                            <td class="table-title">Description</td>
+                            <td class="table-title">Quantité</td>
+                            <td class="table-title">Prix</td>
+                        </tr>
+                        [[ for (const param of z.params) { ]]
+                        <tr>
+                            <td>[[-param.name]]</td>
+                            <td>[[=param.quantity ? param.quantity : '']]</td>
+                            <td>[[-param.value]] €</td>
+                        </tr>
+                        [[ } ]]
+                    </tbody>
+            </table>
+        </div>
+
+        <div class="total-section">
+            <table style="border: 1px solid black;">
+                <tbody>
+                    <tr>
+                        <td>Total HT</td>
+                        <td></td>
+                        <td>[[=z.params.filter((x) => !isNaN(parseInt(x.value))).map((x) => parseInt(x.value)).reduce((a, b) => a + b)]] €</td>
+                    </tr>
+                    <tr>
+                        <td>TVA</td>
+                        <td></td>
+                        <td>[[=z.tva * z.params.filter((x) => !isNaN(parseInt(x.value))).map((x) => parseInt(x.value)).reduce((a, b) => a + b) / 100]] €</td>
+                    </tr>
+                    <tr style="font-weight: bold;">
+                        <td>TTC</td>
+                        <td></td>
+                        <td>[[=(z.params.filter((x) => !isNaN(parseInt(x.value))).map((x) => parseInt(x.value)).reduce((a, b) => a + b)) + (z.tva * z.params.filter((x) => !isNaN(parseInt(x.value))).map((x) => parseInt(x.value)).reduce((a, b) => a + b) / 100)]] €</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="mentions-legales">
+            <p>Veuillez retourner le devis avec la mention ci-dessous coché, daté et signé:</p>
+            <br>
+            <form>
+                <input type="checkbox" id="check">
+                <label for="check"> Bon pour accord.</label>
+            </form>
+
+            <table style="border: none;">
+                <tbody>
+                    <tr>
+                        <td style="width: 50%;">Date:</td>
+                        <td style="background-color: white; width: 50%; text-align: left;">Signature:</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+    </body>
+</html>
